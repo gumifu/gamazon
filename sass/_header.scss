@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* input, button, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+} */
+
+input,
+button,
+textarea,
+select {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    /* -webkit-appearance: none; */
+    -moz-appearance: none;
+    /* appearance: none; */
+}
+
+/* ヘッダー */
+
+header nav {
+    /* display: flex;
+    position: absolute; */
+    width: 100%;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+
+    background: #252f3d;
+
+    .header_container1 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        left: 0px;
+        top: 0px;
+
+        background: #141920;
+        color: #fff;
+    }
+
+    .header_logo {
+        position: static;
+        width: 100px;
+        height: 30px;
+        left: 0px;
+        top: 5px;
+    }
+
+    .nav_container {
+        display: flex;
+    }
+
+    .selecter {
+        cursor: pointer;
+        /* position: absolute; */
+        width: 52px;
+        height: 40px;
+        left: 0px;
+        top: 0px;
+
+        background: #f3f3f3;
+        border-radius: 4px 0px 0px 4px;
+    }
+
+    .header_search {
+        cursor: pointer;
+        width: 667px;
+        height: 40px;
+        left: 279px;
+        top: 0px;
+        margin: 0;
+        /* Primary - White */
+
+        background: #ffffff;
+    }
+
+    .nav_right {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* position: absolute; */
+        width: 45px;
+        height: 40px;
+        left: 719px;
+        top: 0px;
+
+        background: #f4bf76;
+        border-radius: 0px 4px 4px 0px;
+    }
+}
+
+.header_container2 {
+    background: #252f3d;
+    height: 33px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+}
+
+
+
+
+
+/* .fooer_container1 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 1440px;
+    height: 600px;
+    left: 0px;
+    top: 0px;
+
+    background: #141920;
+    color: #fff;
+} */
