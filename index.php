@@ -1,3 +1,47 @@
+<?php
+
+session_start();
+include("functions.php");
+check_session_id();
+
+$user_id = $_SESSION['id'];
+
+$pdo = connect_to_db();
+
+$sql = 'SELECT * FROM products_table LEFT OUTER JOIN (SELECT product_id, COUNT(id) AS like_count FROM product_like_table GROUP BY product_id) AS result_table ON products_table.id = result_table.product_id';
+
+$stmt = $pdo->prepare($sql);
+
+try {
+  $status = $stmt->execute();
+} catch (PDOException $e) {
+  echo json_encode(["sql error" => "{$e->getMessage()}"]);
+  exit();
+}
+
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$output = "";
+foreach ($result as $record) {
+  $output .= "
+        <div class='item_card_list'>
+          <img src='{$record["image"]}' height='150px'>
+          <h2>{$record["title"]}</h2>
+          <p>{$record["product_introduction"]}</p>
+        </div>
+  ";
+}
+    // <tr>
+    //   <td><img src='{$record["image"]}' height='150px'></td>
+    //   <td>{$record["shop"]}</td>
+    //   <td>{$record["title"]}</td>
+    //   <td>{$record["price"]}</td>
+    //   <td>{$record["product_introduction"]}</td>
+    //   <td>{$record["brand_introduction"]}</td>
+    //   <td>{$record["updated_at"]}</td>
+    //   <td><a href='like_create.php?user_id={$user_id}&product_id={$record["id"]}'>like{$record["like_count"]}</a></td>
+    // </tr>
+
+?>
 <!DOCTYPE html>
 <html lang="jp">
 
@@ -174,12 +218,7 @@
     </ul>
     <div class="item_card_container">
       <div class="item_card_wrap">
-        <div class="item_card_list">
-          <img src="img/g_s_image.png" alt="">
-          <h2>タイトルが入る</h2>
-          <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-        </div>
-
+          <?= $output ?>
         <div class="item_card_list">
           <img src="img/g_s_image.png" alt="">
           <h2>タイトルが入る</h2>
