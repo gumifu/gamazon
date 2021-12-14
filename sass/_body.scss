@@ -1,124 +1,73 @@
-.body_container{
-    margin: 0 auto;
-    width: 1500px;
-}
 /*==================================================
 スライダーのためのcss
 ===================================*/
-.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
-    width:94%;
-    margin:0 auto;
+.slider {
+    /*横幅94%で左右に余白を持たせて中央寄せ*/
+    width: 100%;
+    margin: 0 auto;
+    max-height: 230px;
+    z-index: -10;
+    transform: translateX(-0%);
+    // transform: translateY(-50%);
+    // margin-right: 10px;
+    // margin: 0 px;
+    // vertical-align: left;
     // overflow: hidden;
+    vertical-align: middle;
 }
 
 .slider img {
-    width:100%;/*スライダー内の画像を横幅100%に*/
-    height:auto;
-    // overflow: hidden;
+    width: 100%; /*スライダー内の画像を横幅100%に*/
+    height: auto;
+    vertical-align: middle;
 }
 
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
 .slider .slick-slide {
-    margin:0 10px;
+    margin: 0px;
+    width: 100%;
+    // margin-right: -10px;
+    // margin-left: -10px;
 }
 
 /*矢印の設定*/
 
 /*戻る、次へ矢印の位置*/
-.slick-prev, 
+.slick-prev,
 .slick-next {
-    position: absolute;/*絶対配置にする*/
+    position: absolute; /*絶対配置にする*/
     top: 42%;
-    cursor: pointer;/*マウスカーソルを指マークに*/
-    outline: none;/*クリックをしたら出てくる枠線を消す*/
-    border-top: 2px solid #666;/*矢印の色*/
-    border-right: 2px solid #666;/*矢印の色*/
-    height: 15px;
-    width: 15px;
+    cursor: pointer; /*マウスカーソルを指マークに*/
+    outline: none; /*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid rgb(0, 0, 0); /*矢印の色*/
+    border-right: 2px solid rgb(0, 0, 0); /*矢印の色*/
+
+    //  border:1px solid #000;
+    height: 20px;
+    width: 20px;
 }
 
-.slick-prev {/*戻る矢印の位置と形状*/
+.slick-prev {
+    /*戻る矢印の位置と形状*/
+
     z-index: 1;
-    left: -1.5%;
+    left: 2%;
     transform: rotate(-135deg);
 }
 
-.slick-next {/*次へ矢印の位置と形状*/
-    right: -1.5%;
+.slick-next {
+    /*次へ矢印の位置と形状*/
+
+    right: 2%;
     transform: rotate(45deg);
 }
+
 /*==================================================
-スライダーのためのcss
+BOXデザインのためのcss
 ===================================*/
-// .slider {
-//     z-index: -1;
-//     /*横幅94%で左右に余白を持たせて中央寄せ*/
-//     width: 94%;
-//     margin: 0 auto;
-//     height: 300px;
-// }
-// .slider img {
-//     z-index: -100;
-//     // width: 60vw;
-//     // position: relative;
-//     width:100%;
-//     // height: 300px;
-//     /*スライダー内の画像を60vwにしてレスポンシブ化*/
-// }
-// .slider .slick-slide {
-//     transform: scale(0.8);
-//     /*左右の画像のサイズを80%に*/
-//     /* transition: all .5s; */
-//     /*拡大や透過のアニメーションを0.5秒で行う*/
-//     /* opacity: 0.5; */
-//     /*透過50%*/
-// }
 
-// .slider .slick-slide.slick-center {
-//     transform: scale(1);
-//     /*中央の画像のサイズだけ等倍に*/
-//     opacity: 1;
-//     /*透過なし*/
-// }
-
-// /*矢印の設定*/
-
-// /*戻る、次へ矢印の位置*/
-// .slick-prev,
-// .slick-next {
-//     position: absolute;
-//     /*絶対配置にする*/
-//     top: 50%;
-//     cursor: pointer;
-//     /*マウスカーソルを指マークに*/
-//     outline: none;
-//     /*クリックをしたら出てくる枠線を消す*/
-//     border-top: 2px solid #666;
-//     /*矢印の色*/
-//     border-right: 2px solid #666;
-//     /*矢印の色*/
-//     height: 15px;
-//     width: 15px;
-// }
-
-// .slick-prev {
-//     /*戻る矢印の位置と形状*/
-//     left: -1.5%;
-//     transform: rotate(-135deg);
-// }
-
-// .slick-next {
-//     /*次へ矢印の位置と形状*/
-//     right: -1.5%;
-//     transform: rotate(45deg);
-// }
-
-
-
-/* BOXデザイン */
-.div_design00 {
-    
+.gamazon_video {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -127,9 +76,10 @@
     -ms-flex-direction: row;
     flex-direction: row;
 }
-.div_design00 .div_design00_contents {
+
+.gamazon_video .gamazon_video_contents {
     background: rgb(255, 255, 255);
-    width: 300px;
+    width: auto;
     height: 300px;
     margin: 5px;
     display: -webkit-box;
@@ -147,16 +97,58 @@
     flex-direction: column;
 }
 
-.div_design00 .div_design00_contents img {
+.gamazon_video .gamazon_video_contents img {
     width: 100%;
     height: auto;
 }
 
-.div_design00 .div_design00_contents p {
+.gamazon_video .gamazon_video_contents p {
     font-size: 1rem;
     width: auto;
     margin: 0;
     padding: 1rem;
     display: block;
     text-align: center;
+}
+
+//ボックスレイアウト使い回す！！！！
+
+.item_card_container {
+    max-width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
+    .item_card_wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .item_card_list {
+            width: 320px;
+            height: 420px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                margin: 10px;
+                width: 300px;
+                height: 200px;
+                object-fit: cover;
+                object-position: 50% 50%;
+            }
+            h2 {
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                margin: 10px 0;
+            }
+            p {
+                height: 125px;
+                overflow: hidden;
+                margin: 0 10px;
+                line-height: 1.6;
+            }
+        }
+    }
 }

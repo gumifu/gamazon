@@ -3,11 +3,6 @@
   margin: 0;
   padding: 0; }
 
-/* input, button, textarea, select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-} */
 input,
 button,
 textarea,
@@ -23,7 +18,7 @@ select {
   /* appearance: none; */ }
 
 /* ヘッダー */
-header nav {
+.header_nav {
   /* display: flex;
   position: absolute; */
   width: 100%;
@@ -31,7 +26,7 @@ header nav {
   left: 0px;
   top: 0px;
   background: #252f3d; }
-  header nav .header_container1 {
+  .header_nav .header_container1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -42,15 +37,15 @@ header nav {
     top: 0px;
     background: #141920;
     color: #fff; }
-  header nav .header_logo {
+  .header_nav .header_logo {
     position: static;
     width: 100px;
     height: 30px;
     left: 0px;
     top: 5px; }
-  header nav .nav_container {
+  .header_nav .nav_container {
     display: flex; }
-  header nav .selecter {
+  .header_nav .selecter {
     cursor: pointer;
     /* position: absolute; */
     width: 52px;
@@ -59,7 +54,7 @@ header nav {
     top: 0px;
     background: #f3f3f3;
     border-radius: 4px 0px 0px 4px; }
-  header nav .header_search {
+  .header_nav .header_search {
     cursor: pointer;
     width: 667px;
     height: 40px;
@@ -68,7 +63,7 @@ header nav {
     margin: 0;
     /* Primary - White */
     background: #ffffff; }
-  header nav .nav_right {
+  .header_nav .nav_right {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -83,7 +78,7 @@ header nav {
 
 .header_container2 {
   background: #252f3d;
-  height: 33px;
+  height: 39px;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -102,26 +97,28 @@ header nav {
     background: #141920;
     color: #fff;
 } */
-.body_container {
-  margin: 0 auto;
-  width: 1500px; }
-
 /*==================================================
 スライダーのためのcss
 ===================================*/
 .slider {
   /*横幅94%で左右に余白を持たせて中央寄せ*/
-  width: 94%;
-  margin: 0 auto; }
+  width: 100%;
+  margin: 0 auto;
+  max-height: 230px;
+  z-index: -10;
+  transform: translateX(0%);
+  vertical-align: middle; }
 
 .slider img {
   width: 100%;
   /*スライダー内の画像を横幅100%に*/
-  height: auto; }
+  height: auto;
+  vertical-align: middle; }
 
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 .slider .slick-slide {
-  margin: 0 10px; }
+  margin: 0px;
+  width: 100%; }
 
 /*矢印の設定*/
 /*戻る、次へ矢印の位置*/
@@ -134,29 +131,28 @@ header nav {
   /*マウスカーソルを指マークに*/
   outline: none;
   /*クリックをしたら出てくる枠線を消す*/
-  border-top: 2px solid #666;
+  border-top: 2px solid black;
   /*矢印の色*/
-  border-right: 2px solid #666;
+  border-right: 2px solid black;
   /*矢印の色*/
-  height: 15px;
-  width: 15px; }
+  height: 20px;
+  width: 20px; }
 
 .slick-prev {
   /*戻る矢印の位置と形状*/
   z-index: 1;
-  left: -1.5%;
+  left: 2%;
   transform: rotate(-135deg); }
 
 .slick-next {
   /*次へ矢印の位置と形状*/
-  right: -1.5%;
+  right: 2%;
   transform: rotate(45deg); }
 
 /*==================================================
-スライダーのためのcss
+BOXデザインのためのcss
 ===================================*/
-/* BOXデザイン */
-.div_design00 {
+.gamazon_video {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -165,9 +161,9 @@ header nav {
   -ms-flex-direction: row;
   flex-direction: row; }
 
-.div_design00 .div_design00_contents {
+.gamazon_video .gamazon_video_contents {
   background: white;
-  width: 300px;
+  width: auto;
   height: 300px;
   margin: 5px;
   display: -webkit-box;
@@ -184,17 +180,54 @@ header nav {
   -ms-flex-direction: column;
   flex-direction: column; }
 
-.div_design00 .div_design00_contents img {
+.gamazon_video .gamazon_video_contents img {
   width: 100%;
   height: auto; }
 
-.div_design00 .div_design00_contents p {
+.gamazon_video .gamazon_video_contents p {
   font-size: 1rem;
   width: auto;
   margin: 0;
   padding: 1rem;
   display: block;
   text-align: center; }
+
+.item_card_container {
+  max-width: 1350px;
+  margin-left: auto;
+  margin-right: auto; }
+  .item_card_container .item_card_wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .item_card_container .item_card_wrap .item_card_list {
+      width: 320px;
+      height: 420px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .item_card_container .item_card_wrap .item_card_list img {
+        margin: 10px;
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        object-position: 50% 50%; }
+      .item_card_container .item_card_wrap .item_card_list h2 {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px 0; }
+      .item_card_container .item_card_wrap .item_card_list p {
+        height: 125px;
+        overflow: hidden;
+        margin: 0 10px;
+        line-height: 1.6; }
+
+html {
+  scroll-behavior: smooth; }
 
 footer {
   background-color: #141920;
@@ -208,6 +241,9 @@ footer {
     width: 100%;
     color: #fff;
     background-color: #252f3d; }
+    footer .footer_back a {
+      color: #fff;
+      text-decoration: none; }
   footer .footer_logo {
     flex-direction: column;
     color: #fff;
@@ -218,5 +254,114 @@ footer {
     footer .footer_logo p {
       margin-top: 20px;
       font-weight: normal; }
+
+.hmenu-customer-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #232f3e;
+  height: 50px;
+  font-size: 19px;
+  /* text-align: center; */ }
+
+.hmenu-item-title {
+  color: #111111;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 13px 20px 5px 36px; }
+
+.hmenu-item {
+  /* list-style: none; */
+  text-decoration: none;
+  color: #111111;
+  padding: 13px 20px 13px 36px; }
+  .hmenu-item div {
+    padding: 13px 20px 13px 36px; }
+
+.hmenu-separator {
+  border-bottom: 1px solid #d5dbdb;
+  padding: 0;
+  margin: 5px 0; }
+
+.overlay {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.overlay.open {
+  width: 100%;
+  height: 100%;
+  opacity: 1; }
+
+.menu-trigger {
+  display: inline-block;
+  width: 36px;
+  height: 28px;
+  vertical-align: middle;
+  cursor: pointer;
+  transform: translateX(0);
+  transition: transform 0.5s; }
+
+nav {
+  width: 365px;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: translate(-600px);
+  transition: all 0.5s;
+  cursor: pointer;
+  overflow: scroll; }
+
+nav.open {
+  transform: translateZ(0); }
+
+nav li {
+  list-style: none;
+  color: #fff;
+  /* text-align: center; */
+  padding: 10px 0; }
+
+.menu-trigger {
+  transform: translateX(0); }
+
+.batsu {
+  display: none;
+  /* z-index: 10; */
+  /* display: block; */
+  /* position: absolute; */
+  width: 30px;
+  height: 30px; }
+
+.batsu::before,
+.batsu::after {
+  z-index: 10;
+  /* 共通設定 */
+  content: "";
+  position: absolute;
+  left: 390px;
+  top: 35px;
+  width: 2px;
+  /* 棒の幅（太さ） */
+  height: 30px;
+  /* 棒の高さ */
+  background: white; }
+
+.batsu::before {
+  transform: translate(-50%, -50%) rotate(45deg); }
+
+.batsu::after {
+  transform: translate(-50%, -50%) rotate(-45deg); }
 
 /*# sourceMappingURL=style.css.map */

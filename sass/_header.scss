@@ -3,12 +3,6 @@
     padding: 0;
 }
 
-/* input, button, textarea, select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-} */
-
 input,
 button,
 textarea,
@@ -26,7 +20,7 @@ select {
 
 /* ヘッダー */
 
-header nav {
+.header_nav {
     /* display: flex;
     position: absolute; */
     width: 100%;
@@ -104,7 +98,7 @@ header nav {
 
 .header_container2 {
     background: #252f3d;
-    height: 33px;
+    height: 39px;
     width: 100%;
     display: flex;
     justify-content: space-around;
