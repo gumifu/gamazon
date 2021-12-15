@@ -8,7 +8,7 @@ button,
 textarea,
 select {
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 2%;
     background: none;
     border: none;
     border-radius: 0;
@@ -31,6 +31,7 @@ select {
     background: #252f3d;
 
     .header_container1 {
+        padding: 0 10px;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -106,19 +107,36 @@ select {
     color: #fff;
 }
 
+.header_forsend_container {
+    position: relative;
+    cursor: pointer;
+    .arrow_box {
+        display: none;
+        position: absolute;
+        padding: 16px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        background: #333;
+        color: #fff;
+    }
 
+    .arrow_box:after {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-left: -10px;
+        border: solid transparent;
+        border-color: rgba(51, 51, 51, 0);
+        border-bottom-color: #333;
+        border-width: 10px;
+        pointer-events: none;
+        content: " ";
+    }
 
-
-
-/* .fooer_container1 {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    width: 1440px;
-    height: 600px;
-    left: 0px;
-    top: 0px;
-
-    background: #141920;
-    color: #fff;
-} */
+    &:hover + p.arrow_box {
+        display: block;
+    }
+}

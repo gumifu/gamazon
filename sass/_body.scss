@@ -1,3 +1,7 @@
+*{
+    text-decoration: none;
+}
+
 /*==================================================
 スライダーのためのcss
 ===================================*/
@@ -118,10 +122,12 @@ BOXデザインのためのcss
     margin-left: auto;
     margin-right: auto;
     .item_card_wrap {
+        text-decoration: none;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         .item_card_list {
+            text-decoration: none;
             width: 320px;
             height: 420px;
             background-color: #fff;
@@ -130,6 +136,7 @@ BOXデザインのためのcss
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-decoration: none;
             img {
                 margin: 10px;
                 width: 300px;
@@ -138,15 +145,21 @@ BOXデザインのためのcss
                 object-position: 50% 50%;
             }
             h2 {
-                font-size: 20px;
+                text-decoration: none;
+                color: #000;
+                font-size: 15px;
                 font-weight: bold;
                 text-align: center;
-                margin: 10px 0;
+                margin: 10px 20px;
             }
             p {
+                text-decoration: none;
+                color: #000;
+                font-size: 13px;
                 height: 125px;
                 overflow: hidden;
-                margin: 0 10px;
+                margin: 25px 20px;
+                margin-top: 0px;
                 line-height: 1.6;
             }
         }

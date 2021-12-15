@@ -1,0 +1,607 @@
+@charset "Shift_JIS";
+
+/*============================================
+全般的なスタイル
+============================================*/
+* {
+	margin: 0;
+	padding: 0;
+	/*全要素のマージン・パディングをリセット*/
+	line-height: 1.5;
+	/*全要素の行の高さを1.5倍にする*/
+	color: #f5ecec;
+	/*文字色*/
+}
+
+body {
+	background-color: #999999;
+	/*ページ全体の背景色*/
+	/* text-align:center;		IE6以下でセンタリングするための対策 */
+	/* width:1 */
+}
+
+div#pagebody {
+	width: 100%;
+	margin: 0 auto;
+	/*内容全体をセンタリング*/
+	text-align: left;
+	/*テキストの配置を左揃えにする*/
+	background-image: url("images/bg_pagebody.gif");
+	/*内容全体の背景*/
+	background-repeat: repeat-y;
+	/*背景画像を縦方向に繰り返す*/
+	background-color: #ffffff;
+	/*内容全体の背景色*/
+
+}
+
+/*============================================
+ヘッダ
+============================================*/
+div#header {
+	height: 77px;
+	/*背景画像のサイズに合わせてボックスの高さを指定*/
+	background-image: url("images/bg_header.jpg");
+	/*ヘッダ部分の背景画像*/
+	background-repeat: no-repeat;
+	/*背景画像を繰り返さない*/
+	background-color: #1b0202;
+	/*ヘッダ部分の背景色*/
+	color: #eeeeee;
+}
+
+h1 {
+	padding: 20px 0px 0px 30px;
+	/*見出し内容の位置調整*/
+	font-family: Arial, Helvetica, sans-serif;
+	/*フォントの種類*/
+
+}
+
+h1 a {
+	text-decoration: none;
+}
+
+/*リンクの下線を無くす*/
+
+/*============================================
+メインメニュー
+============================================*/
+ul#menu {
+	height: 42px;
+	background-color: hsl(209, 79%, 13%);
+	font-weight: bold;
+}
+
+li#menu01, li#menu02, li#menu03, li#menu04, li#menu05, li#menu06, li#menu07 {
+	float: left;
+	/* リスト項目を横に並べる  */
+	display: inline;
+	/*リスト項目をインライン表示にする*/
+	list-style-type: none;
+	/*リストマーカー無しにする*/
+	background-repeat: no-repeat;
+	/*背景画像を繰り返さない*/
+}
+
+
+
+.main_contents {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+/*============================================
+サブメニュー（左カラム）
+============================================*/
+div#submenu {
+	/* width:522px;			幅の指定 */
+	width: 50%;
+	margin: 10px 10px 10px 25px;
+	/*位置調整（IE6のバグに注意）*/
+	display: inline;
+	/*IE6のマージン算出のバグ対策*/
+
+
+}
+
+/*サブメニューのヘッダ部分（余白調整・背景画像・背景色・文字サイズなど）*/
+div#submenu_header {
+	height: 26px;
+	padding: 4px 0px 0px 0px;
+	background-image: url("images/bg_submenu_header.gif");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-color: #cccccc;
+	font-size: 90%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.shoespic {
+	margin-top: 10px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+
+/*サブメニューのボディ部分（余白調整・背景画像・背景色）*/
+ul#submenu_body {
+	padding-bottom: 6px;
+	background-image: url("images/bg_submenu_footer.gif");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: #cccccc;
+}
+
+ul#submenu_body li {
+	font-size: 90%;
+	/*文字サイズを90%にする*/
+	list-style-type: none;
+	/*リストマーカー無しにする*/
+	display: inline;
+	/*リスト項目をインライン表示にする*/
+}
+
+ul#submenu_body li a {
+	display: block;
+	/*リンクをブロック表示にする*/
+	margin: 0px 4px 0px 4px;
+	/*サブメニュー項目のマージン*/
+	padding: 2px 0px 2px 20px;
+	/*サブメニュー項目のパディング*/
+	background-color: #eeeeee;
+	/*サブメニュー項目の背景色*/
+	text-decoration: none;
+	/*リンクの下線を無くす*/
+}
+
+ul#submenu_body li a:hover {
+	background-color: #ffffff;
+	/*リンクにマウスが乗ったら色を変える*/
+}
+
+/*============================================
+コンテンツ（中央と右の2カラム全体）
+============================================*/
+#content {
+	/* width:560px; */
+	width: 50%;
+	margin: 10px 20px 10px 0px;
+	/*幅の指定と位置調整*/
+	/* display: flex; */
+}
+
+/*============================================
+ニュース（中央カラム）
+============================================*/
+#news {
+	display: flex;
+	width: 100%;
+	margin-right: 5px;
+	padding-top: 10px;
+	/*幅の指定と位置調整*/
+	float: left;
+	/*カラムを左寄せにする*/
+	background-image: url("images/bar_news.gif");
+	/*中央カラムの背景画像*/
+	background-repeat: no-repeat;
+	/*背景画像を繰り返さない*/
+
+}
+
+/*見出し・段落・水平線のスタイル指定*/
+.news_container {
+	margin-right: 30px;
+}
+
+.newstore {
+	margin-top: 30px;
+	margin-right: 30px;
+	color: #007185;
+	font-size: 14px;
+}
+
+.new_store {
+	color: #1b0202
+}
+
+.limit_color {
+	color: #1b0202
+}
+
+.price_font {
+	color: #0f1111;
+}
+
+.seven_return {
+	color: #1b0202
+}
+
+.pre_try {
+	color: #0f1111;
+}
+
+.try_before {
+	color: #0f1111;
+}
+
+.text {
+	color: #0f1111;
+}
+
+.size {
+	color: #0f1111;
+}
+
+.free {
+	color: #0f1111;
+}
+
+/* h2 {
+	 margin-top:293px; margin-right:21.6px;
+	 color:#007185;
+	 font :14px;
+ } */
+
+/* font-size:100%; margin-bottom:10px; padding-left:25px;
+	font-size:95%; border-bottom:solid 1px #cccccc;
+	 background-image:url("images/icon.gif"); 
+	 background-repeat:no-repeat; background-position:left center; */
+/* } */
+
+.newmodel {
+	width: 510px;
+	color: #0f1111;
+	font: 24px;
+	background-color: #7fbfff;
+}
+
+/* .newprice {
+	margin-top:488px; margin-right:28px;
+	color:#0f1111;
+	font:14px; 
+} */
+/* .differentsize {
+	  margin-top:316px; margin-right:41.6px;
+	  color:#0f1111;
+	  /* font:14px;  */
+/* } */
+h3 {
+	font-size: 90%;
+	margin-left: 5px;
+}
+
+p {
+	font-size: 90%;
+	margin: 10px 0px 10px 10px;
+	text-indent: 10px;
+}
+
+hr {
+	height: 1px;
+	border: solid 1px #cccccc;
+	margin-bottom: 30px;
+}
+
+/*============================================
+ピックアップ（右カラム）
+============================================*/
+div#pickup {
+	width: 242px;
+	padding-top: 10px;
+	/*幅の指定と位置調整*/
+	height: 165px;
+
+	background-image: url("images/bar_pickup.gif");
+	/*右カラムの背景画像*/
+	background-repeat: no-repeat;
+	/*背景画像を繰り返さない*/
+	border: 5px solid rgb(224, 217, 217);
+	box-sizing: border-box;
+
+}
+
+div#pickup ul {
+	margin-left: 10px;
+	/*左マージンを10px空ける*/
+	font-size: 90%;
+	/*フォントサイズを90%にする*/
+}
+
+div#pickup li {
+	list-style-type: none;
+	/*リストマーカー無しにする*/
+	line-height: 1.8;
+	/*行の高さを1.8倍にする*/
+}
+
+.selectbuy {
+	margin-top: 168px;
+	margin-left: 41.6px;
+	color: #0f1111;
+	font: 14px;
+}
+
+.select_buy {
+	color: #0f1111;
+}
+
+.put_in {
+	color: #0f1111;
+}
+
+/*============================================
+フッタ
+============================================*/
+div#footer {
+	height: 42px;
+	text-align: center;
+	clear: both;
+	/*回り込みを解除する*/
+	background-image: url("images/bg_footer.jpg");
+	/*フッタ部分の背景画像*/
+	background-repeat: no-repeat;
+	/*背景画像を繰り返さない*/
+	background-color: #cccccc;
+	/*フッタ部分の背景色*/
+}
+
+address {
+	font-style: normal;
+	/*フォントスタイルを標準にする*/
+	font-size: small;
+	/*フォントサイズを小さくする*/
+	padding: 5px 0px 5px 0px;
+}
+
+/*要素内容の位置調整*/
+button {
+	background-color: yellow;
+}
+
+select {
+	margin: 20px;
+	padding: 10px;
+	color: #0f1111;
+}
+
+/*フォーム全体*/
+#form1 {
+	position: relative;
+	/*フォームの相対位置*/
+	max-width: 270px;
+	/*フォームのサイズ*/
+	margin-bottom: 15px;
+	/*フォームの下に余白*/
+}
+
+/*検索ボックス*/
+#sbox {
+	position: absolute;
+	/*フォームの絶対位置*/
+	left: 0;
+	top: 0;
+	outline: 0;
+	/*クリック時の青い枠線消す*/
+	height: 50px;
+	/*検索ボックスの高さ*/
+	padding: 0 10px;
+	/*テキスト位置調整*/
+	border-radius: 2px 0 0 2px;
+	/*検索ボックスの角を丸める*/
+	background: #eee;
+	/*検索ボックスの背景カラー*/
+}
+
+/*検索ボタン*/
+#sbtn {
+	width: 70px;
+	/*検索ボタンの横幅*/
+	height: 50px;
+	/*検索ボタンの縦幅*/
+	position: absolute;
+	/*検索ボタンの絶対位置*/
+	left: 270px;
+	/*検索ボタンの位置調整*/
+	top: 0;
+	border-radius: 0 2px 2px 0;
+	/*検索ボタンの角を丸める*/
+	background: #7fbfff;
+	/*検索ボタンの背景カラー*/
+	border: none;
+	/*検索ボタンの枠線を消す*/
+	color: #fff;
+	/*検索ボタンのテキストカラー*/
+	font-weight: bold;
+	/*検索ボタンのテキスト太字*/
+	font-size: 16px;
+	/*検索ボタンのフォントサイズ*/
+}
+
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover {
+	color: #666;
+	/*検索ボタンマウスオーバー時のフォントカラー*/
+}
+
+.font_price {
+	font-size: 20px;
+	color: red
+}
+
+.font_prime {
+	color: #0063dc
+}
+
+.follow-me {
+	list-style: none;
+	margin: 0 0 -8px;
+	overflow: hidden;
+	padding: 0;
+	display: flex;
+}
+
+.follow-me li {
+	/* float: left; */
+	margin: 0 8px 8px 0;
+	padding: 0;
+}
+
+.follow-me li a::before {
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	color: #fff;
+	display: inline-block;
+	font-family: FontAwesome;
+	font-size: 16px;
+	height: 44px;
+	/* Button height */
+	line-height: 44px;
+	/* Button height */
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	text-align: center;
+	width: 44px;
+	/* Button width */
+}
+
+.follow-me li a:hover::before {
+	opacity: 0.7;
+}
+
+.follow-me li a[href*="amazon.co.jp"]::before,
+.follow-me li a[href*="amazon.com"]::before {
+	background-color: #ff9900;
+	content: "\f270";
+}
+
+.follow-me li a[href*="facebook.com"]::before {
+	background-color: #3b5998;
+	content: "\f09a";
+}
+
+.follow-me li a[href*="instagram.com"]::before {
+	background-color: #125688;
+	content: "\f16d";
+}
+
+.follow-me li a[href*="skype.com"]::before,
+.follow-me li a[href*="skype:"]::before {
+	background-color: #00aff0;
+	content: "\f17e";
+}
+
+.follow-me li a[href*="twitter.com"]::before {
+	background-color: #55acee;
+	content: "\f099";
+}
+
+.follow-me li a[href*="youtube.com"]::before {
+	background-color: #cd201f;
+	content: "\f16a";
+}
+
+.share {
+	color: #0f1111;
+}
+
+
+
+
+
+/* === ボタンを表示するエリア ============================== */
+.switchArea {
+	line-height: 60px;
+	/* 1行の高さ          */
+	letter-spacing: 0;
+	/* 文字間             */
+	text-align: center;
+	/* 文字位置は中央     */
+	font-size: 27px;
+	/* 文字サイズ         */
+
+	position: relative;
+	/* 親要素が基点       */
+	/* margin         : auto;                中央寄せ           */
+	width: 150px;
+	/* ボタンの横幅       */
+	background: #fff;
+	/* デフォルト背景色   */
+}
+
+/* === チェックボックス ==================================== */
+.switchArea input[type="checkbox"] {
+	display: none;
+	/* チェックボックス非表示 */
+}
+
+/* === チェックボックスのラベル（標準） ==================== */
+.switchArea label {
+	display: block;
+	/* ボックス要素に変更 */
+	box-sizing: border-box;
+	/* 枠線を含んだサイズ */
+	height: 40px;
+	/* ボタンの高さ       */
+	border: 2px solid #999999;
+	/* 未選択タブのの枠線 */
+	border-radius: 30px;
+	/* 角丸               */
+}
+
+/* === チェックボックスのラベル（ONのとき） ================ */
+.switchArea input[type="checkbox"]:checked+label {
+	border-color: #78bd78;
+	/* 選択タブの枠線     */
+}
+
+/* === 表示する文字（標準） ================================ */
+.switchArea label span:after {
+	content: "Sale";
+	/* 表示する文字       */
+	padding: 0 0 0 36px;
+	/* 表示する位置       */
+	color: #999999;
+	/* 文字色             */
+}
+
+/* === 表示する文字（ONのとき） ============================ */
+.switchArea input[type="checkbox"]:checked+label span:after {
+	content: "Sold";
+	/* 表示する文字       */
+	padding: 0 36px 0 0;
+	/* 表示する位置       */
+	color: #78bd78;
+	/* 文字色             */
+}
+
+/* === 丸部分のSTYLE（標準） =============================== */
+.switchArea #swImg {
+	position: absolute;
+	/* 親要素からの相対位置*/
+	width: 30px;
+	/* 丸の横幅           */
+	height: 30px;
+	/* 丸の高さ           */
+	background: #999999;
+	/* カーソルタブの背景 */
+	top: 4px;
+	/* 親要素からの位置   */
+	left: 4px;
+	/* 親要素からの位置   */
+	border-radius: 26px;
+	/* 角丸               */
+	transition: .2s;
+	/* 滑らか変化         */
+}
+
+/* === 丸部分のSTYLE（ONのとき） =========================== */
+.switchArea input[type="checkbox"]:checked~#swImg {
+	transform: translateX(90px);
+	/* 丸も右へ移動       */
+	background: #78bd78;
+	/* カーソルタブの背景 */
+}

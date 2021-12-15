@@ -23,11 +23,11 @@ try {
   exit();
 }
 
-
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $output = "";
 foreach ($result as $record) {
   $output .= "
+
     <tr>
       <td><img src='{$record["image"]}' height='150px'></td>
       <td>{$record["shop"]}</td>
@@ -55,10 +55,17 @@ foreach ($result as $record) {
       <td><a href='like_create.php?user_id={$user_id}&product_id={$record["id"]}'>like{$record["like_count"]}</a></td>
       <td><a href='product_edit.php?id={$record["id"]}'>修正</a></td>
       <td><a href='product_delete.php?id={$record["id"]}'>削除</a></td>
-      
+
     </tr>
   ";
 }
+
+
+// echo'<pre>';
+// var_dump($record["title"]);
+// echo'</pre>';
+// exit();
+
 
 ?>
 

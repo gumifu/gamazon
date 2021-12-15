@@ -24,13 +24,22 @@ check_session_id();
       <a href="products_read.php">一覧画面</a>
       <a href="logout.php">ログアウト</a>
       <div>
+        <input type="file" name="upfile" accept="image/*" capture="camera" />
+      </div>
+      <div>
+        ショップ: <input type="text" name="shop">
+      </div>
+      <div>
         タイトル: <input type="text" name="title">
+      </div>
+      <div>
+        カテゴリ: <input type="text" name="category">
       </div>
       <div>
         価格: <input type="text" name="price">
       </div>
       <div>
-        <input type="file" name="upfile" accept="image/*" capture="camera" />
+        商品紹介: <textarea rows="10" cols="60" type="text" name="product_introduction"></textarea>
       </div>
       <div>
         <button>決定</button>
