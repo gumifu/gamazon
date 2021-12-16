@@ -621,6 +621,7 @@ select {
 } */
 
 .comment_btn {
+	margin: 0 auto;
 	width: 282px;
 	height: 29px;
 	background: -moz-linear-gradient(top, #f7dfa5, #f0c14b);
@@ -628,4 +629,20 @@ select {
 	background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
 	border-color: #a88734 #9c7e31 #846a29;
 	padding: 1px 6px;
+}
+
+.comment_list {
+	padding: 20px;
+	margin-top: 10px;
+	list-style: none;
+	border: solid 1px #1b0202;
+	border-radius: 5px;
+}
+
+.list_created_at {
+	font-size: 12px;
+}
+
+.list_comment_name {
+	font-size: 12px;
 }

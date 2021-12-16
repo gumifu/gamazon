@@ -27,6 +27,16 @@ select {
   left: 0px;
   top: 0px;
   background: #252f3d; }
+  .header_nav a {
+    display: block;
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .header_nav a:hover {
+      border: solid 1px #fff;
+      border-radius: 2px; }
   .header_nav .header_container1 {
     padding: 0 10px;
     display: flex;
@@ -217,6 +227,7 @@ BOXデザインのためのcss
   margin-left: auto;
   margin-right: auto; }
   .item_card_container .item_card_wrap {
+    margin-top: 20px;
     text-decoration: none;
     display: flex;
     justify-content: space-between;
@@ -361,6 +372,11 @@ nav li {
   color: #fff;
   /* text-align: center; */
   padding: 10px 0; }
+  nav li:hover {
+    background-color: #eaeded; }
+
+.white:hover {
+  background-color: white !important; }
 
 .menu-trigger {
   transform: translateX(0); }

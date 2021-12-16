@@ -11,7 +11,7 @@
 
 <body>
   <div class="wrapper-padding-medium">
-    <div class="logo"><img src='img/black_logo.png' class="logo-img"><span class="logo-txt">.co.jp</span></div>
+    <div class="logo"><img src='img/black_logo.png' class="logo-img"><span class="logo-txt"></span></div>
       <div class="main-content">
         <!-- ログイン画面1ページ目 -->
         <form action="login_act.php" method="POST">
@@ -23,7 +23,7 @@
                   Eメールまたは携帯電話番号
                 </label>
                 <div class="input-text">
-                  <input type="text" name="username">
+                  <input type="text" name="email_address">
                 </div>
                 <div class="input-section">
                   <label for="label-email" class="input-title">
@@ -44,55 +44,13 @@
               <div class="confirm-divider">
                 <h5>初めてGamazonをご利用ですか？</h5>
               </div>
-              <div class="register-btn button-style"><a href="register.php">Gamazonアカウントを作成する</a></div>
+              <div class="register-btn button-style user-resister-btn"><a href="register.php">Gamazonアカウントを作成する</a></div>
+              <div class="register-btn button-style"><a href="shop_register.php">ショップアカウントを作成する</a></div>
           </div><!-- input-box -->   
         </form>
       </div>
 
-  <!-- ログイン画面2ページ目 -->
-  <!-- <form action="login_act.php" method="POST">
-    <h2>ログイン</h2> -->
-    <!-- ここに1ページ目で入力したメールアドレスを表示 -->
-    <!-- <div><a href="#" alt="" class="mailad-change">変更</a></div>
-    <div class="input-box">
-      <div class="input-contents">
-        <div class="input-title">
-          パスワード
-        </div>
-        <div><a href="#" alt="" class="forget-pw">パスワードを忘れた場合</a></div>
-        <div class="input-text"><input type="password" id="input_pass" name="password">
-          <button id="btn_passview">表示</button>
-        </div>
-        <div>
-          <button class="login-btn">ログイン</button>
-        </div>
-        <label>
-          <input type="checkbox" name="level" value="ok">
-            ログインしたままにする
-        </label>
-        <div>
-        <button id="detail-btn">詳細</button>
-        <p class="balloon">
-          <span>
-          <p class="bg-gray">[ログインしたままにする] チェックボックス</p>  
-          <p class="detail-txt">「ログインしたままにする」を選択すると、このデバイスでログインが求められる回数が減ります。<br>
-            お客様のアカウントのセキュリティを保つため、個人でお使いのデバイスでのみこのオプションを使うようにしてください。</span>
-          </p>
-          </p>  
-        </div>
-      </div>
-
-      <div class="caution-text">Gamazonの<a href="#">利用規約</a>と<a href="#">プライバシー規約</a>に同意いただける場合はログインしてください。</div>
-
-      <div>▶︎&nbsp;<a href="#">お困りですか?</div>
-
-      <div class="confirm-text">初めてGamazonをご利用ですか？</div>
-
-      <div class="register-btn"><a href="_register.php">Gamazonアカウントを作成する</a></div>
-
-  </form> -->
-
-
+    <div class="divider-inner"></div>
 
 
     <div class="footer">

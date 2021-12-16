@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ユーザー登録画面</title>
+  <title>ショップアカウント登録画面</title>
   <link rel="stylesheet" type="text/css" href="css/login.css" />
 
 </head>
@@ -13,13 +13,13 @@
 <div class="wrapper-padding-medium">
     <div class="logo"><img src='img/black_logo.png' class="logo-img"><span class="logo-txt"></span></div>
       <div class="main-content">
-        <form action="register_act.php" method="POST" enctype="multipart/form-data">
+        <form action="shop_register_act.php" method="POST" enctype="multipart/form-data">
           <div class="input-box">
             <div class="input-contents">   
               <div class="input-contents-inner">
-                <h1 class="h1-spacing-small">アカウントを作成</h1> 
+                <h1 class="h1-spacing-small">店舗用アカウント作成</h1> 
                 <label for="label-email" class="input-title">
-                  名前
+                  ショップ名
                 </label>
                 <div class="input-text">
                   <input type="text" name="username">
@@ -59,19 +59,38 @@
                     <input type="file" name="upfile" accept="image/*" capture="camera"/>
                   </div>
                   <div>
-                    <button class="login-btn button-style">Gamazonアカウントを作成する</button>
+                    <button class="login-btn button-style">ショップアカウントを作成する</button>
                   </div>
                 </div><!-- input-section -->
 
                 <div class="caution-text">Gamazonの<a href="#">利用規約</a>と<a href="#">プライバシー規約</a>に同意いただける場合はアカウントを作成してください。</div>
                 <div class="divider-inner"></div>
                 <div class="caution-text">すでにアカウントをお持ちですか？ <a href="login.php">▶︎ サインイン</a><br>
-                法人用の購買ですか？ <a href="#">▶︎ 無料のビジネスアカウントを作成</a></div>
+                個人用の購入アカウントですか？ <a href="register.php">▶︎ Gamazonアカウントを作成</a></div>
 
               </div><!-- input-contents-inner -->
             </div><!-- input-contents -->  
           </div><!-- input-box -->  
     
+  
+  
+        <!-- <div class="input-box">
+      <div class="input-contents">
+        <div class="input-title">
+          ユーザー名</div><div class="input-text"><input type="text" name="username">
+        </div>
+        <div class="input-contents">
+        <div class="input-title">
+            パスワード</div><div class="input-text"><input type="password" id="input_pass" name="password">
+          <button id="btn_passview">表示</button>
+        </div>
+        <div>
+          <button class="login-btn">登録する</button>
+        </div>
+        <div class="confirm">
+          アカウントをお持ちですか？→
+            <a href="login.php">ログイン</a>
+        </div> -->
     </form>
     <div class="divider-inner"></div>
 

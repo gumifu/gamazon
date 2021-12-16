@@ -3,33 +3,13 @@
 // var_dump($_POST);
 // exit;
 
-// $random_name = rand(0, 4);
-
-// switch($random_name){
-//     case 0:
-//     $no_name = '<i>晴れやかな名無しさん(匿名)</i>';
-//     break;
-//     case 1:
-//     $no_name = '<i>悲しげな名無しさん(匿名)</i>';
-//     break;
-//     case 2:
-//     $no_name = '<i>コードを書く名無しさん(匿名)</i>';
-//     break;
-//     case 3:
-//     $no_name = '<i>暇を持て余す名無しさん(匿名)</i>';
-//     break;
-//     case 4:
-//     $no_name = '<i>天下の名無しさん(匿名)</i>';
-//     break;
-// }
 session_start();
 include("functions.php");
 check_session_id();
 
-// $no_name = '<i>晴れやかな名無しさん</i>';
 if (
-    !isset($_POST['comment']) || $_POST['comment'] == '' ||
-    !isset($_POST['comment_name']) || $_POST['comment_name'] == ''
+    !isset($_POST['comment']) || $_POST['comment'] == '' 
+    // !isset($_POST['comment_name']) || $_POST['comment_name'] == ''
     // !isset($_POST['comment']) || $_POST['comment'] == '' //必須項目（todo と deadline）が空で送信されている．
 ) {
     exit('ParamError'); //<Param> パラメータ
@@ -41,12 +21,14 @@ if (
 
 $comment = $_POST['comment'];
 $comment_name = $_POST['comment_name'];
-$product_id = $_GET['id'];
+$product_id = $_POST['product_id'];
+
+$pdo = connect_to_db();
 // var_dump($comment);
 // exit;
 // var_dump($comment_name);
 // var_dump($comment);
-// var_dump($thread_id);
+// var_dump($product_id);
 // exit;
 // exit($comment_name);
 
@@ -67,17 +49,19 @@ $product_id = $_GET['id'];
 // echo 'OK';
 // exit;
 // exit('OK');
-
 // SQL作成&実行
-$sql = 'INSERT INTO comment_table (id, thread_id, comment_name, comment, created_at, updated_at) VALUES (NULL, :thread_id, :comment_name, :comment, now(), now())';
+
+// var_dump($product_id);
+// exit;
+
+$sql = 'INSERT INTO product_comment_table (id, product_id, comment_name, comment, created_at, updated_at) VALUES (NULL, :product_id, :comment_name, :comment, now(), now())';
 
 $stmt = $pdo->prepare($sql);
-
-// バインド変数を設定//セキュリティ強化・・変なデータがあるか
+$stmt->bindValue(':product_id', $product_id, PDO::PARAM_STR);
 $stmt->bindValue(':comment_name', $comment_name, PDO::PARAM_STR);
 $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
-$stmt->bindValue(':thread_id', $thread_id, PDO::PARAM_STR);
-
+// var_dump($sql);
+// exit;
 // SQL実行（実行に失敗すると `sql error ...` が出力される）
 try {
     $status = $stmt->execute(); //ここでSQLにいく？？？
@@ -89,9 +73,9 @@ try {
 //ここで止まっている！！！
 // exit('OK');
 
-$sql = 'UPDATE thread_table SET updated_at=now() WHERE id=:thread_id';
+$sql = 'UPDATE products_table SET updated_at=now() WHERE id=:product_id';
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':thread_id', $thread_id, PDO::PARAM_STR);
+$stmt->bindValue(':product_id', $product_id, PDO::PARAM_STR);
 
 try {
     $status = $stmt->execute(); //ここでSQLにいく？？？
@@ -99,8 +83,7 @@ try {
     echo json_encode(["sql error" => "{$e->getMessage()}"]);
     exit();
 }
-
-
+// exit('OK');
 //SQL が正常に実行された場合は，データ入力画面に移動することとする
-header('Location:thread_read.php?id=' . $thread_id);
+header('Location:./custumer_page.php?id=' . $product_id);
 exit();

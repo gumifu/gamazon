@@ -3,7 +3,11 @@ session_start();
 include("functions.php");
 check_session_id();
 
+
 $user_id = $_SESSION['id'];
+$user_image = $_SESSION['image'];
+// var_dump($user_image);
+// exit;
 
 $pdo = connect_to_db();
 
@@ -40,6 +44,7 @@ foreach ($result as $record) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gamazon.co.jp</title>
+    <link rel='stylesheet' href='https://unpkg.com/ress/dist/ress.min.css'>
     <link rel="icon" href="./img/favicon1.ico" type="image/x-icon">
     <link href="css/style.css" rel="stylesheet">
     <!-- <link href="css/flickity-docs.css" rel="stylesheet"> -->
@@ -47,10 +52,10 @@ foreach ($result as $record) {
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/slider.css">
     <style>
-    body {
-        background-color: #E5E5E5;
-        font-family: 'Amazon Ember';
-    }
+        body {
+            background-color: #E5E5E5;
+            font-family: 'Amazon Ember';
+        }
     </style>
 </head>
 
@@ -80,7 +85,7 @@ foreach ($result as $record) {
                 </form>
                 <div><img src="img/japan_flag.png" alt=""></div>
                 <div class="header_forsend_container">
-                    <div style="font-size: 14px;">こんにちは<?= $_SESSION['username'] ?>さん</div>
+                    <div style="font-size: 14px;"><?= $_SESSION['username'] ?>さん</div>
                     <div>アカウント＆リスト</div>
                     <p class="arrow_box">ふきだし1</p>
                 </div>
@@ -112,14 +117,14 @@ foreach ($result as $record) {
             <span class="batsu" id="batsu"></span>
         </div>
         <nav>
-            <div class="hmenu-customer-profile">
-                <img src="" alt="" style="clip-path: circle(50% at 50% 50%);">
+            <div class="hmenu-customer-profile" style="display: flex;">
+                <img src="<?= $_SESSION['image'] ?>" alt="" style="clip-path: circle(50% at 50% 50%); width:25px">
                 <b>こんにちは <?= $_SESSION['username'] ?>さん</b>
             </div>
 
             <div id="hmenu-content">
                 <ul class="hmenu hmenu-visible" data-menu-id="1">
-                    <li>
+                    <li class="white">
                         <div class="hmenu-item-title " style="color: #111111; font-weight: bold;">アカウント＆リスト</div>
                     </li>
                     <li><a href="./logout.php" class="hmenu-item">ログアウト</a></li>
@@ -172,32 +177,25 @@ foreach ($result as $record) {
                         </a></li>
                     <ul class="hmenu-compress-section compressed">
                         <li class="hmenu-mini-divider"></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="14"
-                                data-ref-tag="nav_em_1_1_1_19">
+                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="14" data-ref-tag="nav_em_1_1_1_19">
                                 <div>ホーム＆キッチン・ペット・DIY</div><i class="nav-sprite hmenu-arrow-next"></i>
                             </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="15"
-                                data-ref-tag="nav_em_1_1_1_20">
+                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="15" data-ref-tag="nav_em_1_1_1_20">
                                 <div>食品・飲料・お酒</div><i class="nav-sprite hmenu-arrow-next"></i>
                             </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="16"
-                                data-ref-tag="nav_em_1_1_1_21">
+                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="16" data-ref-tag="nav_em_1_1_1_21">
                                 <div>ドラッグストア・ビューティー</div><i class="nav-sprite hmenu-arrow-next"></i>
                             </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="17"
-                                data-ref-tag="nav_em_1_1_1_22">
+                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="17" data-ref-tag="nav_em_1_1_1_22">
                                 <div>ベビー・おもちゃ・ホビー</div><i class="nav-sprite hmenu-arrow-next"></i>
                             </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="18"
-                                data-ref-tag="nav_em_1_1_1_23">
+                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="18" data-ref-tag="nav_em_1_1_1_23">
                                 <div>服・シューズ・バッグ ・腕時計</div><i class="nav-sprite hmenu-arrow-next"></i>
                             </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="19"
-                                data-ref-tag="nav_em_1_1_1_24">
+                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="19" data-ref-tag="nav_em_1_1_1_24">
                                 <div>スポーツ＆アウトドア</div><i class="nav-sprite hmenu-arrow-next"></i>
                             </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="20"
-                                data-ref-tag="nav_em_1_1_1_25">
+                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="20" data-ref-tag="nav_em_1_1_1_25">
                                 <div>車＆バイク・産業・研究開発</div><i class="nav-sprite hmenu-arrow-next"></i>
                             </a></li>
                     </ul>
@@ -218,47 +216,6 @@ foreach ($result as $record) {
     <div class="item_card_container">
         <div class="item_card_wrap">
             <?= $output ?>
-            <div class="item_card_list">
-                <img src="img/g_s_image.png" alt="">
-                <h2>タイトルが入る</h2>
-                <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-            </div>
-
-            <div class="item_card_list">
-                <img src="img/amazon_echo.jpg" alt="">
-                <h2>タイトルが入る</h2>
-                <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-            </div>
-
-            <div class="item_card_list">
-                <img src="img/g_s_image.png" alt="">
-                <h2>タイトルが入る</h2>
-                <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-            </div>
-
-            <div class="item_card_list">
-                <img src="img/g_s_image.png" alt="">
-                <h2>タイトルが入る</h2>
-                <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-            </div>
-
-            <div class="item_card_list">
-                <img src="img/g_s_image.png" alt="">
-                <h2>タイトルが入る</h2>
-                <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-            </div>
-
-            <div class="item_card_list">
-                <img src="img/g_s_image.png" alt="">
-                <h2>タイトルが入る</h2>
-                <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-            </div>
-
-            <div class="item_card_list">
-                <img src="img/g_s_image.png" alt="">
-                <h2>タイトルが入る</h2>
-                <p>本文が入ります本文が入ります本文が入ります本文が入ります本文が入ります</p>
-            </div>
         </div>
         <!-- </div> -->
         <!-- <div class="gamazon_video">
@@ -285,7 +242,7 @@ foreach ($result as $record) {
         <!-- <nav> -->
         <div class="footer_logo">
             <img src="./img/gamazon.png" alt="">
-            <p>Conditions of UsePrivacy NoticeInterest Based Ads Policy© 2021, Gamazon.com, Inc. or its affiliates</p>
+            <small>Conditions of UsePrivacy NoticeInterest Based Ads Policy© 2021, Gamazon.com, Inc. or its affiliates</small>
         </div>
         <!-- </nav> -->
     </footer>
@@ -294,8 +251,7 @@ foreach ($result as $record) {
     <!-- <script src="./js/flickity-docs.min.js"></script> -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!--自作のJS-->
     <script src="./js/slider.js"></script>

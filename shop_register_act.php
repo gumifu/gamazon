@@ -60,9 +60,6 @@ if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] == 0) {
 
 
 
-
-
-
 $pdo = connect_to_db();
 
 
@@ -86,7 +83,7 @@ if ($stmt->fetchColumn() > 0) {
 
 $sql = 'SELECT * FROM gamazon_users_table WHERE username=:username AND password=:password AND is_deleted=0';
 
-$sql = 'INSERT INTO gamazon_users_table(id, image, username, username_kana, email_address, password, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :image, :username, :username_kana, :email_address, :password, 0, 0, now(), now())';
+$sql = 'INSERT INTO gamazon_users_table(id, image, username, username_kana, email_address, password, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :image, :username, :username_kana, :email_address, :password, 1, 0, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':image', $save_path, PDO::PARAM_STR);

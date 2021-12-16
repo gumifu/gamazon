@@ -22,6 +22,8 @@ $title = $_POST['title'];
 $category = $_POST['category'];
 $price = $_POST['price'];
 $product_introduction = $_POST['product_introduction'];
+$contact = $_POST['contact'];
+$sale_flag = $_POST['sale_flag'];
 
 // ここからファイルアップロード&DB登録の処理
 
@@ -57,7 +59,7 @@ if (isset($_FILES['upfile']) && $_FILES['upfile']['error'] == 0) {
 
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO products_table(id, image, shop, title, category, price, product_introduction, created_at, updated_at) VALUES(NULL, :image, :shop, :title, :category, :price, :product_introduction, sysdate(), sysdate())';
+$sql = 'INSERT INTO products_table(id, image, shop, title, category, price, product_introduction, contact, sale_flag, created_at, updated_at) VALUES(NULL, :image, :shop, :title, :category, :price, :product_introduction, :contact, 0, sysdate(), sysdate())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':image', $save_path, PDO::PARAM_STR);
@@ -66,6 +68,7 @@ $stmt->bindValue(':title', $title, PDO::PARAM_STR);
 $stmt->bindValue(':category', $category, PDO::PARAM_STR);
 $stmt->bindValue(':price', $price, PDO::PARAM_STR);
 $stmt->bindValue(':product_introduction', $product_introduction, PDO::PARAM_STR);
+$stmt->bindValue(':contact', $contact, PDO::PARAM_STR);
 
 try {
   $status = $stmt->execute();

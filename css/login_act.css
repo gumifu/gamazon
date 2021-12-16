@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 19px;
+  /* width: 350px; */
+  margin-right: auto;
+  margin-left: auto;
+  color: #111;
+  font-family: "Hiragino Kaku Gothic Pro W3", "Hiragino Kaku Gothic ProN",
+    Meiryo, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #0066c0;
+}
+
+.wrapper-padding-medium {
+  margin-top: 50px;
+  margin-bottom: 22px;
+  padding: 14px 18px;
+}
+
+.h1-spacing-small {
+  margin-bottom: 10px;
+}
+
+.logo-img {
+  width: 103px;
+  height: auto;
+  margin-bottom: 12px;
+  /* background-color: #141920; */
+}
+
+.main-content {
+  width: 700px;
+  margin: 10px auto 0;
+}
+
+.error-msg {
+}
+
+.button-style {
+  width: 100% !important;
+  border-radius: 3px;
+  border-width: 1px;
+}
+
+.login-btn {
+  width: 282px;
+  height: 29px;
+  background: -moz-linear-gradient(top, #f7dfa5, #f0c14b);
+  background: -webkit-linear-gradient(top, #f7dfa5, #f0c14b);
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border-color: #a88734 #9c7e31 #846a29;
+  padding: 1px 6px;
+}
+
+.divider-inner {
+  margin-top: 400px;
+  height: 44px;
+  margin-bottom: -18px;
+  background: -webkit-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.14),
+    rgba(0, 0, 0, 0.03) 3px,
+    transparent
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.14),
+    rgba(0, 0, 0, 0.03) 3px,
+    transparent
+  );
+  z-index: 0;
+  zoom: 1;
+}
+
+.divider-inner:after {
+  display: block;
+  width: 100%;
+  height: 44px;
+  background-color: transparent;
+  background: -webkit-linear-gradient(
+    to right,
+    #fff,
+    rgba(255, 255, 255, 0),
+    #fff
+  );
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+  z-index: 1;
+  content: "";
+}
+
+.pw-information-img {
+  height: 16px;
+}
+
+.pw-caution {
+  margin-top: -14px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.footer {
+  margin-top: 26px;
+}
+
+.site-map {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+}
+
+.main-contents {
+  display: flex;
+  flex-direction: column-reverse;
+}

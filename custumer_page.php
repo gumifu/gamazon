@@ -8,6 +8,7 @@ check_session_id();
 
 $user_id = $_SESSION['id'];
 $product_id = $_GET['id'];
+$user_image =$_SESSION['image'];
 
 $pdo = connect_to_db();
 
@@ -63,6 +64,33 @@ foreach ($result as $record) {
 ";
 }
 
+$sql = 'SELECT * FROM product_comment_table WHERE product_id = :product_id ORDER BY created_at DESC';
+$stmt = $pdo->prepare($sql);
+
+$stmt->bindValue(':product_id', $product_id, PDO::PARAM_STR);
+
+try {
+    $status = $stmt->execute();
+} catch (PDOException $e) {
+    echo json_encode(["sql error" => "{$e->getMessage()}"]);
+    exit();
+}
+
+// SQL実行の処理
+$result_comment = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$output_comment = "";
+foreach ($result_comment as $record_comment) {
+    $output_comment .= "
+    <li class='comment_list'>
+    <div style='display:flex'>
+        <img src=' {$user_image}' style='clip-path: circle(50% at 50% 50%); width:25px'>
+        <div class='list_comment_name'>{$_SESSION['username']}</div>
+    </div>
+        <div class='list_comment'>{$record_comment["comment"]}</div>
+        <div class='list_created_at'>投稿日時：{$record_comment["created_at"]}</div>
+    </li>
+    ";
+}
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -145,7 +173,7 @@ foreach ($result as $record) {
             </div>
             <div id="hmenu-content">
                 <ul class="hmenu hmenu-visible" data-menu-id="1">
-                    <li>
+                    <li class="white" style="background-color: #fff !important;">
                         <div class="hmenu-item-title " style="color: #111111; font-weight: bold;">アカウント＆リスト</div>
                     </li>
                     <li><a href="./logout.php" class="hmenu-item">ログアウト</a></li>
@@ -249,43 +277,45 @@ foreach ($result as $record) {
             </div>
         </div>
         <hr />
-        <div class="comment_input_container">
-            <div class="comment_container">
+        <h2 style="margin-left: 20px;">レビューorコンタクト</h2>
+        <div class="comment_input_container" style="display: flex; justify-content:center; width:95%; margin:20px">
+
+            <div class="comment_main" style="width:30%">
+                <form action="comment_create.php" method="POST">
+                    <fieldset style="border: none;">
+                        <legend></legend>
+                        <!-- <a href="thread_read.php">スレ画面</a> -->
+                        <!-- <div>
+                            <div class="comment_titles">
+                                名前:
+                            </div> -->
+                            <input type="hidden" name="comment_name" value="<?= $_SESSION['username'] ?>" style="border: solid 1px black; border-radius:3px padding:0%;margin:10px">
+                        <!-- </div> -->
+                        <div>
+                            <div class="comment_titles">
+                            
+                            </div>
+                            <!-- <input type="text" name="comment" placeholder="Comment"> -->
+                            <textarea name="comment" id="" cols="60" rows="5" placeholder="コメントを残す" style="border: solid 1px black; border-radius:3px; padding:0%;margin:10px"></textarea>
+                        </div>
+                        <div style="width:400px; margin: 0 auto;">
+                            <button class="comment_btn">書き込む</button>
+                        </div>
+                        <input type="hidden" name="product_id" value="<?= $_GET['id'] ?>">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="comment_container" style="margin-left: 50px; list-style:none;width:70% ">
                 <ul>
                     <?= $output_comment ?>
                 </ul>
-            </div>
-            <div class="comment_main">
-                <form action="comment_create.php" method="POST">
-                    <fieldset>
-                        <legend>コメント</legend>
-                        <!-- <a href="thread_read.php">スレ画面</a> -->
-                        <div>
-                            <div class="comment_titles">
-                                名前:
-                            </div>
-                            <input type="text" name="comment_name" value="<?= $_SESSION['username'] ?>" style="border: solid 1px black; border-radius:3px">
-                        </div>
-                        <div>
-                            <div class="comment_titles">
-                                コメント:
-                            </div>
-                            <!-- <input type="text" name="comment" placeholder="Comment"> -->
-                            <textarea name="comment" id="" cols="80" rows="5" placeholder="コメント" style="border: solid 1px black; border-radius:3px"></textarea>
-                        </div>
-                        <div>
-                            <button class="comment_btn">書き込む</button>
-                        </div>
-                        <input type="hidden" >
-                    </fieldset>
-                </form>
             </div>
 
         </div>
 
         <!-- フッタ -->
         <footer>
-            <div class="footer_back">
+            <div class=" footer_back">
                 <a href="#i_header_container1">
                     <p>トップへ戻る</p>
                 </a>
