@@ -18,10 +18,10 @@ $sql = "SELECT * FROM products_table WHERE id={$product_id}";
 $stmt = $pdo->prepare($sql);
 
 try {
-  $status = $stmt->execute();
+    $status = $stmt->execute();
 } catch (PDOException $e) {
-  echo json_encode(["sql error" => "{$e->getMessage()}"]);
-  exit();
+    echo json_encode(["sql error" => "{$e->getMessage()}"]);
+    exit();
 }
 
 
@@ -29,29 +29,37 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $outputImg = "";
 
 foreach ($result as $record) {
-  $outputImg .= "
-  <img src='{$record['image']}'  style='width=514 height=391.5' />
+    $outputImg .= "
+  <img src='{$record['image']}'/>
   ";
 }
 
 foreach ($result as $record) {
-  $output .= "
-  <div class='newstore'><span class='new_store'>出品者:{$record["shop"]}</span></div>
-  <span class='limit_color'>{$record["title"]}</span>
+    $output .= "
+  <div class='newstore'><span class='new_store'><h3>出品者:{$record["shop"]}</h3></span></div>
+  <span class='limit_color'><h2>{$record["title"]}</h2></span>
+    <p>投稿日時：{$record["updated_at"]}</p>
+
   ";
 }
 
 $output2 = "";
 foreach ($result as $record) {
-  $output2 .= "
-    <span class='font_price'>￥{$record["price"]}</span>
+    $output2 .= "
+    <span class='font_price'>￥<h2>{$record["price"]}</h2></span>
+";
+}
+
+$product_updated_at = "";
+foreach ($result as $record) {
+    $product_updated_at .= "
 ";
 }
 
 $ProductIntro = "";
 foreach ($result as $record) {
-  $ProductIntro .= "
-    <span class='seven_return'>{$record['product_introduction']}</span>
+    $ProductIntro .= "
+    <span class='seven_return'><h3>商品説明:</h3> {$record['product_introduction']}</span>
 ";
 }
 
@@ -70,9 +78,9 @@ foreach ($result as $record) {
     <link rel="icon" href="./img/favicon1.ico" type="image/x-icon">
 
     <style>
-    body {
-        font-family: 'Amazon Ember';
-    }
+        body {
+            font-family: 'Amazon Ember';
+        }
     </style>
 </head>
 
@@ -115,7 +123,6 @@ foreach ($result as $record) {
                 </div>
             </div>
         </div>
-
         <div class="header_container2">
             <div class="menu-trigger" style="width: auto; height: auto;">
                 <p><img src="img/hamburger 1.png" alt="">すべて</p>
@@ -126,10 +133,8 @@ foreach ($result as $record) {
             <p>ビューティー＆パーソナルケア</p>
             <p>おもちゃ＆ホビー</p>
             <p>車＆バイク</p>
-            <a href="https://www.facebook.com/groups/gsnight" target="_blank" rel="noopener noreferrer"><img src="
-                img/g_s_night.png" alt=""></a>
+            <a href="https://www.facebook.com/groups/gsnight" target="_blank" rel="noopener noreferrer"><img src="img/g_s_night.png" alt=""></a>
         </div>
-
         <div class="batsu_box">
             <span class="batsu" id="batsu"></span>
         </div>
@@ -138,7 +143,6 @@ foreach ($result as $record) {
                 <img src="" alt="" style="clip-path: circle(50% at 50% 50%);">
                 <b>こんにちは <?= $_SESSION['username'] ?>さん</b>
             </div>
-
             <div id="hmenu-content">
                 <ul class="hmenu hmenu-visible" data-menu-id="1">
                     <li>
@@ -191,38 +195,8 @@ foreach ($result as $record) {
                         </a></li>
                     <li><a href="" class="hmenu-item" data-menu-id="13" data-ref-tag="nav_em_1_1_1_18">
                             <div>パソコン・オフィス用品</div><i class="nav-sprite hmenu-arrow-next"></i>
-                        </a></li>
-                    <ul class="hmenu-compress-section compressed">
-                        <li class="hmenu-mini-divider"></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="14"
-                                data-ref-tag="nav_em_1_1_1_19">
-                                <div>ホーム＆キッチン・ペット・DIY</div><i class="nav-sprite hmenu-arrow-next"></i>
-                            </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="15"
-                                data-ref-tag="nav_em_1_1_1_20">
-                                <div>食品・飲料・お酒</div><i class="nav-sprite hmenu-arrow-next"></i>
-                            </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="16"
-                                data-ref-tag="nav_em_1_1_1_21">
-                                <div>ドラッグストア・ビューティー</div><i class="nav-sprite hmenu-arrow-next"></i>
-                            </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="17"
-                                data-ref-tag="nav_em_1_1_1_22">
-                                <div>ベビー・おもちゃ・ホビー</div><i class="nav-sprite hmenu-arrow-next"></i>
-                            </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="18"
-                                data-ref-tag="nav_em_1_1_1_23">
-                                <div>服・シューズ・バッグ ・腕時計</div><i class="nav-sprite hmenu-arrow-next"></i>
-                            </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="19"
-                                data-ref-tag="nav_em_1_1_1_24">
-                                <div>スポーツ＆アウトドア</div><i class="nav-sprite hmenu-arrow-next"></i>
-                            </a></li>
-                        <li><a href="" class="hmenu-item" tabindex="-1" data-menu-id="20"
-                                data-ref-tag="nav_em_1_1_1_25">
-                                <div>車＆バイク・産業・研究開発</div><i class="nav-sprite hmenu-arrow-next"></i>
-                            </a></li>
-                    </ul>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -233,11 +207,8 @@ foreach ($result as $record) {
         <div class="main_contents">
             <!-- サブメニュー（左カラム） -->
             <div id="submenu">
-                <!-- <div id="submenu_header">目的で探す</div>
-        <ul id="submenu_body">
-          <li><a href="xxx.html">CSSの適用</a></li> -->
                 <div class="shoespic">
-                    <p><?= $outputImg ?></p>
+                    <?= $outputImg ?>
                 </div>
                 </ul>
             </div>
@@ -249,13 +220,14 @@ foreach ($result as $record) {
                         <?= $output ?>
                         <hr />
                         <div class=" newprice"><span class="price_font">価格:</span>
-                            <span class="font_price"><?= $output2 ?></span><span class="free">&返品:交渉次第(一部対象外)</span>
+                            <span class="font_price"><?= $output2 ?></span><span class="free">&返品:交渉次第</span>
+                            <br><?= $product_updated_at ?>
                         </div>
                         <br>
                         <div class="differentsize">
                             <?= $ProductIntro ?> <br>
                         </div>
-                        <div><span class="font_prime">Prime</span><span class="try_before"> try before you buy</span>
+                        <div style="margin:20px 0px"><span class="font_prime">Prime</span><span class="try_before"> try before you buy</span>
                         </div>
                         <div class="switchArea">
                             <input type="checkbox" id="switch1">
@@ -265,8 +237,7 @@ foreach ($result as $record) {
                     </div>
                     <!-- ピックアップ（右カラム） -->
                     <div id="pickup">
-                        <link rel="stylesheet"
-                            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
                         <h5><span class="share">シェアする</span></h5>
                         <ul class="follow-me">
                             <li><a href="https://www.facebook.com"></a></li>
@@ -277,7 +248,41 @@ foreach ($result as $record) {
                 </div>
             </div>
         </div>
-        <hr/>
+        <hr />
+        <div class="comment_input_container">
+            <div class="comment_container">
+                <ul>
+                    <?= $output_comment ?>
+                </ul>
+            </div>
+            <div class="comment_main">
+                <form action="comment_create.php" method="POST">
+                    <fieldset>
+                        <legend>コメント</legend>
+                        <!-- <a href="thread_read.php">スレ画面</a> -->
+                        <div>
+                            <div class="comment_titles">
+                                名前:
+                            </div>
+                            <input type="text" name="comment_name" value="<?= $_SESSION['username'] ?>" style="border: solid 1px black; border-radius:3px">
+                        </div>
+                        <div>
+                            <div class="comment_titles">
+                                コメント:
+                            </div>
+                            <!-- <input type="text" name="comment" placeholder="Comment"> -->
+                            <textarea name="comment" id="" cols="80" rows="5" placeholder="コメント" style="border: solid 1px black; border-radius:3px"></textarea>
+                        </div>
+                        <div>
+                            <button class="comment_btn">書き込む</button>
+                        </div>
+                        <input type="hidden" >
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+
         <!-- フッタ -->
         <footer>
             <div class="footer_back">
@@ -288,15 +293,12 @@ foreach ($result as $record) {
             <!-- <nav> -->
             <div class="footer_logo">
                 <img src="./img/gamazon.png" alt="">
-                <p>Conditions of UsePrivacy NoticeInterest Based Ads Policy© 2021, Gamazon.com, Inc. or
-                    its
-                    affiliates</p>
+                <p>Conditions of UsePrivacy NoticeInterest Based Ads Policy© 2021, Gamazon.com, Inc. oritsaffiliates</p>
             </div>
             <!-- </nav> -->
         </footer>
         <!-- </div> -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
         </script>
         <script src="./js/header.js"></script>
 </body>
